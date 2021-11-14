@@ -1,9 +1,5 @@
-package check_palindrome;
-
 import java.util.*;
-
 public class Check_palindrome {
-
     public static void main(String[] args) {
         int num;
         int rev = 0;
@@ -20,5 +16,4 @@ public class Check_palindrome {
         if(num == rev) System.out.println("YES");
         else System.out.println("NO " + rev);
     }
-
 }

@@ -1,7 +1,4 @@
-package factorial;
-
 import java.util.Scanner;
-
 public class Factorial {
     
     static int factorial(int n){
