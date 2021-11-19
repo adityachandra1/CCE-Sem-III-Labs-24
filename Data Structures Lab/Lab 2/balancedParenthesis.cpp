@@ -76,4 +76,5 @@ int main(){
     }
 
     s.isEmpty()? cout << "Balanced parenthesis" : cout << "Unbalanced Parenthesis" << endl;
+    return 0
 }
