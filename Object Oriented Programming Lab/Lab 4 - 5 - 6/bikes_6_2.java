@@ -2,7 +2,7 @@ class Bike {
     int speedlimit = 120;
 
     void run(){
-        System.out.println("Vroom Vroom Vrooo!!");
+        System.out.println("Vroom Vroom Vrooom!! at Speed " + speedlimit);
     }
 }
 
@@ -10,7 +10,7 @@ class Splendor extends Bike {
     int speedlimit = 70;
 
     void run (){
-        System.out.println("Splendor goes Vrooooooooom!");
+        System.out.println("Splendor goes Vrooooooooom! at a speed of " + speedlimit);
     }
 }
 
