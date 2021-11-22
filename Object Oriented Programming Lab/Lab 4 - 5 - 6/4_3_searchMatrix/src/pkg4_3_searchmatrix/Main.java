@@ -33,17 +33,20 @@ public class Main {
         System.out.println("Enter Key to be searched");
         int key;
         key = sc.nextInt();
-        int flag = 0;
+        int flag = 0, count = 0;
         for(int i = 0 ; i < n ; i++){
              for(int j = 0 ; j < m ; j++){
                 if(mat[i][j] == key){
                     System.out.println("Key Found at "+ (i+1) + "," + (j+1));
                     flag = 1;
+                    count++;
                 }
              }
         }
         if(flag == 0){
             System.out.println("Key Not Found");
+        }else{
+            System.out.println("Occurences : " + count);
         }
         
     }

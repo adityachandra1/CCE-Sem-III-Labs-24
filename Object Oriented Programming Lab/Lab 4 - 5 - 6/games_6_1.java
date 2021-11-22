@@ -19,8 +19,8 @@ class chess extends Game{
 public class games_6_1{
     public static void main(String args[]){
         Game Hockey = new Game();
-        chess Chess = new chess();
-        cricket Cricket = new cricket();
+        Game Chess = new chess();
+        Game Cricket = new cricket();
 
         Hockey.type();
         Chess.type();
