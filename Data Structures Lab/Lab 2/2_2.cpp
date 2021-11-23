@@ -20,7 +20,7 @@ class stack {
     char pop() {
         if (isEmpty()) {
             cout << "Stack-Underflow" << endl;
-            return ERROR;
+            return 0;
         } else {
             return a[top--];
         }

@@ -13,6 +13,9 @@ class stack {
 
 
     stack() { top = -1; }
+    int topElement(){
+        return a[top];
+    }
     bool isEmpty() { return top == -1; }
     bool isFull() { return top == MAX_SIZE - 1; }
     void push(int ele) {
@@ -50,19 +53,19 @@ int main(){
     stack s;
     while(temp!=0){
      s.push(temp%base);
+     cout << temp%base << endl;
      temp /= base;
     }
-    cout << char(69) << endl;
     s.display();
     cout << num << " in base " << base  << " is"  << endl;
-
     while(!s.isEmpty()){
-        if(s.top < 10)
-            cout << s.pop();
-        if(s.top >= 10){
-            int x = s.pop();
-            cout << char(x + 55) << endl;
+        // cout << s.topElement();
+        if(s.topElement() >= 10){
+            cout << char( 55 + int(s.topElement()));
+        }else{
+            cout << s.topElement();
         }
+        s.pop();
     }
     cout << endl;
 
