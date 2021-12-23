@@ -5,21 +5,6 @@
 using namespace std;
 
 #define MAX_SIZE 50
-enum precedence {lparen, rparen, pls, mnus, times, divide, mod, eos, operand};
-
-precedence get_token (char c){
-   switch(c){
-   case '(' : return lparen;
-   case ')' : return rparen;
-   case '+' : return pls;
-   case '-' : return mnus;
-   case '*' : return times;
-   case '/' : return divide;
-   case '%' : return mod;
-   case '#' : return eos;
-   default : return operand;
-   }
-}
 
 int prec(char c) {
     if(c == '^')
@@ -63,41 +48,6 @@ class stack {
         cout << endl;
     }
 };
-
-void infix2postfix(char infix[]){
-    stack st;
-    char postfix[50] = {0};
-    precedence temp;
-    int curr = 0; // curr ptr for postfix;
-    char c;
-
-    for(int i = 0 ; infix[i] != '\0' ; i++){
-        c = infix[i];
-        cout << postfix;
-        if( c >= 'a' && c <= 'Z' || c >= 'A' && c <= 'Z'|| c >= '0' && c <= '9'){
-            postfix[curr++] = c;
-             cout << postfix;
-        }
-
-        else if(c == '(') st.push('(');
-        else if(c == ')'){
-            while(st.top != '(') postfix[curr++] = st.pop();
-            st.pop();
-        }else{
-            while(!st.isEmpty() && prec(infix[i]) <= prec(st.top)){
-                postfix[curr++] = st.pop();
-            }
-            st.push(c);
-        }
-    }
-
-    while(!st.isEmpty()){
-        postfix[curr++] = st.pop();
-    }
-
-    cout << postfix << endl;
-
-}
 
 int evaluatePostfix(char str[]){
     stack st;
@@ -146,7 +96,12 @@ int evaluatePrefix(char str[]){
 }
 
 int main(){
-    char prefix[100];
+    char prefix[100], postfix[100];
+    cout << "Enter Prefix Expession";
     cin >> prefix;
-    cout << evaluatePrefix(prefix);
+    cout << evaluatePrefix(prefix) << endl;
+    cout << "Enter postfix Expession";
+    cin >> postfix;
+    cout << evaluatePostfix(postfix) <<endl;
 }
+          

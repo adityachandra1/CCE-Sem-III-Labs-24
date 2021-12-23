@@ -1,37 +1,21 @@
 #include <iostream>
-#include <string.h>
 using namespace std;
 
 #define MAX_SIZE 50
-enum precedence {lparen, rparen, pls, mnus, times, divide, mod, eos, operand};
-
-precedence get_token (char c){
-   switch(c){
-   case '(' : return lparen;
-   case ')' : return rparen;
-   case '+' : return pls;
-   case '-' : return mnus;
-   case '*' : return times;
-   case '/' : return divide;
-   case '%' : return mod;
-   case '#' : return eos;
-   default : return operand;
-   }
-}
 
 int prec(char c) {
-    if(c == '^')
+    if (c == '^')
         return 3;
-    else if(c == '/' || c=='*')
+    else if (c == '/' || c == '*')
         return 2;
-    else if(c == '+' || c == '-')
+    else if (c == '+' || c == '-')
         return 1;
     else
         return -1;
 }
 
 class stack {
-    public:
+   public:
     int top;
     char a[MAX_SIZE];
 
@@ -40,8 +24,10 @@ class stack {
     bool isFull() { return top == MAX_SIZE - 1; }
 
     void push(char ele) {
-        if (isFull()) cout << "Stack-Overflow" << endl;
-        else a[++top] = ele;
+        if (isFull())
+            cout << "Stack-Overflow" << endl;
+        else
+            a[++top] = ele;
     }
     char pop() {
         if (isEmpty()) {
@@ -51,10 +37,11 @@ class stack {
             return a[top--];
         }
     }
-    void display(){
-        if (isEmpty()) cout << "Empty-Stack" << endl;
-        else{
-            for (int i = 0; i <= top; i++){
+    void display() {
+        if (isEmpty())
+            cout << "Empty-Stack" << endl;
+        else {
+            for (int i = 0; i <= top; i++) {
                 cout << a[i] << " ";
             }
         }
@@ -62,43 +49,43 @@ class stack {
     }
 };
 
-void infix2postfix(char infix[]){
+void infix2postfix(char infix[]) {
     stack st;
     char postfix[50] = {0};
-    precedence temp;
-    int curr = 0; // curr ptr for postfix;
+    int curr = 0;  // curr ptr for postfix;
     char c;
 
-    for(int i = 0 ; infix[i] != '\0' ; i++){
+    for (int i = 0; infix[i] != '\0'; i++) {
         c = infix[i];
-        cout << postfix;
-        if( c >= 'a' && c <= 'Z' || c >= 'A' && c <= 'Z'|| c >= '0' && c <= '9'){
+        
+        if (c >= 'a' && c <= 'Z' || c >= 'A' && c <= 'Z' || c >= '0' && c <= '9') {
             postfix[curr++] = c;
-             cout << postfix;
         }
 
-        else if(c == '(') st.push('(');
-        else if(c == ')'){
-            while(st.top != '(') postfix[curr++] = st.pop();
+        else if (c == '(')
+            st.push('(');
+        else if (c == ')') {
+            while (st.top != '(') postfix[curr++] = st.pop();
             st.pop();
-        }else{
-            while(!st.isEmpty() && prec(infix[i]) <= prec(st.top)){
+        } else {
+            while (!st.isEmpty() && prec(infix[i]) <= prec(st.top)) {
                 postfix[curr++] = st.pop();
             }
             st.push(c);
         }
     }
 
-    while(!st.isEmpty()){
+    while (!st.isEmpty()) {
         postfix[curr++] = st.pop();
     }
 
     cout << postfix << endl;
-
 }
 
-int main(){
+int main() {
     char infix[100];
+    cout << "Enter infix expression \n";
     cin >> infix;
+    cout <<"Postfix Expression ";
     infix2postfix(infix);
 }

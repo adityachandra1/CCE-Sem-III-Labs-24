@@ -4,21 +4,6 @@
 using namespace std;
 
 #define MAX_SIZE 50
-enum precedence {lparen, rparen, pls, mnus, times, divide, mod, eos, operand};
-
-precedence get_token (char c){
-   switch(c){
-   case '(' : return lparen;
-   case ')' : return rparen;
-   case '+' : return pls;
-   case '-' : return mnus;
-   case '*' : return times;
-   case '/' : return divide;
-   case '%' : return mod;
-   case '#' : return eos;
-   default : return operand;
-   }
-}
 
 int prec(char c) {
     if(c == '^')
@@ -66,7 +51,6 @@ class stack {
 void infix2postfix(char infix[]){
     stack st;
     char postfix[50] = {0};
-    precedence temp;
     int curr = 0; // curr ptr for postfix;
     char c;
 
