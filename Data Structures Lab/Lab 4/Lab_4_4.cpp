@@ -2,8 +2,9 @@
 using namespace std;
 #define MAX_SIZE 100
 
-bool isOperator(char c) {
-    return (!isalpha(c) && !isdigit(c));
+bool isOperand(char x) {
+    return (x >= 'a' && x <= 'z') ||
+           (x >= 'A' && x <= 'Z');
 }
 
 int getPriority(char C) {
@@ -72,7 +73,7 @@ string infixToPostfix(string infix) {
             }
             s.pop();
         } else {
-            if (isOperator(s.top_ele())) {
+            if (isOperand(s.top_ele())) {
                 if (infix[i] == '^') {
                     while (getPriority(infix[i]) <= getPriority(s.top_ele())) {
                         post += s.top_ele();
@@ -101,7 +102,7 @@ string reverse(string s) {
     int n = s.length() / 2;
     for (int i = 0; i < n / 2; i++) {
         char temp = s[i];
-        s[i] = s[n - i - i];
+        s[i] = s[n - i - 1];
         s[n - i - 1] = temp;
     }
     return s;
