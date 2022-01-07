@@ -1,18 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package lab_10;
-import java.io.File;
 
-/**
- *
- * @author student
- */
+import java.io.File;
 public class Q5 {
     public static void main(String args[]){
-        String currDirPath = "C:\\Users\\student\\Downloads\\CCE-Sem-III-Labs-24-main\\CCE-Sem-III-Labs-24-main\\Object Oriented Programming Lab\\Lab_10\\src\\lab_10";
+        String currDirPath = "/mnt/2E02676C026737CB/Manipal-Stuff/CCE-Sem-III-Labs-24/Object Oriented Programming Lab/Lab 10";
         File currDir = new File(currDirPath);
         if (currDir.exists() && currDir.isDirectory()) {
               

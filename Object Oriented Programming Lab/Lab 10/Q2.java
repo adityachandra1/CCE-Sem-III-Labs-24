@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package lab_10;
+
 import java.util.Scanner;
-/**
- *
- * @author student
- */
 
 class NegativeArraySizeException extends Exception{
     public NegativeArraySizeException (String s){
@@ -41,7 +32,8 @@ public class Q2 {
             array[i] = sc.nextInt();
         }
         for(int i = 0 ; i < num ; i++){
-            System.out.print(array[i]);
+            System.out.print(array[i]+ " ");
         }
+        System.out.println("");
     }
 }
