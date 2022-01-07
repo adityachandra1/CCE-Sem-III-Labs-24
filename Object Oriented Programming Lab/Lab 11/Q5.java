@@ -1,25 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package lab.pkg11;
-
-/**
- *
- * @author student
- */
-public class Q5{
+public class Q5 extends Thread {
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+            System.out.println(i);
+        }
+    }
 
     public static void main(String args[]) {
-        try {
-            for (int j = 0; j < 5; j++) {
-                Thread.sleep(1000);
-                System.out.println(j);
-            }
-        } catch (Exception expn) {
-            System.out.println(expn);
-        }
-
+        Q5 t1 = new Q5();
+        Q5 t2 = new Q5();
+        t1.start();
+        t2.start();
     }
 }
